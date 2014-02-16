@@ -1,0 +1,23 @@
+Description of the files=>
+1.index.php
+Simple form to take the data from the user.
+2.connect_and_generate.php
+In this file the connection to the database and a string is generated that is used as the short url.includes
+three functions for redirecting domainthatuhave.com/xxxx to the original long url
+3.forward.php
+query string is used for assigning the query string to a variable which comes after the slash of a domain example.com/querystring.
+Then the next line is to make sure that it is a short url and not anyother file on the server.
+then connection to the database, then short url is passed into a mysql query to check if the short url actually exists,
+and if it eists what does it corresponds to. 
+Then some error checking,
+if the short url doesnt exist we direct the user to domainthatuhave using the header function but if it exist 
+the header function is used to redirect the user to the long url that matches the short in the database.
+4. .htaccess file
+a .htaccess file with following details is  uploaded on the server for the configuration
+that is for parsing the query string from domainthatuhave.com/xxxx to forward.php.
+You need to upload the following as the .htaccess file on your server
+
+XBitHack      Off
+RewriteEngine On
+RewriteCond   %{REQUEST_URI} \/([0-9a-z]{4})$ [NC]
+RewriteRule   ^(.*) http://www.domainthatuhave.com/forward.php?%1 [L]

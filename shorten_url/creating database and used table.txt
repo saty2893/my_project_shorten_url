@@ -1,0 +1,14 @@
+
+
+
+1. Database created and used for the project=>short_url
+	used query=>create database short_url;
+	used query=> use short_url;
+2.Created table in the database=>shortenurl
+	used query=>
+		create table shorten_url(
+		id int(11) not null auto_increment,
+		short varchar(6) not null,
+		url varchar(1000) not null,
+		primary key(id),
+		);

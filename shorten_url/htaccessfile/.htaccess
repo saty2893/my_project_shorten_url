@@ -1,0 +1,4 @@
+XBitHack      Off
+RewriteEngine On
+RewriteCond   %{REQUEST_URI} \/([0-9a-z]{4})$ [NC]
+RewriteRule   ^(.*) http://www.domainthatuhave.com/forward.php?%1 [L]
